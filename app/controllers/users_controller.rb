@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
 
-  def landing_page
-    render "layouts/application"
+  def index
+    users = User.all
+    render json: users
   end
-
-  def new
-  end
-  
 
 end
