@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_032252) do
+ActiveRecord::Schema.define(version: 2019_05_05_133919) do
 
   create_table "favorite_parks", force: :cascade do |t|
     t.integer "park_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_05_04_032252) do
     t.string "description"
     t.string "directions_url"
     t.string "url"
+    t.string "park_code"
   end
 
   create_table "users", force: :cascade do |t|
