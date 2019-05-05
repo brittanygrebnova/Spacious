@@ -5,4 +5,7 @@ class ParksController < ApplicationController
     render json: parks
   end
 
+  def favorite
+  end
+
 end
