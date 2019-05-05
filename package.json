@@ -1,5 +1,7 @@
 {
   "name": "ParkZuckerberg",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "react-signup-login-component": "^1.2.0"
+  }
 }
