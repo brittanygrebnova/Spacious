@@ -30,6 +30,8 @@ gem 'rack-cors'
 
 gem 'active_model_serializers'
 
+gem 'foreman', '~> 0.82.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
