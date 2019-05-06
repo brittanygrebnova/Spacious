@@ -1,3 +1,4 @@
+import React from 'react';
 import ReactSignupLoginComponent from 'react-signup-login-component';
 
 const LoginPage = (props) => {

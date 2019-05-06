@@ -2,6 +2,9 @@
   "name": "ParkZuckerberg",
   "private": true,
   "dependencies": {
-    "react-signup-login-component": "^1.2.0"
+    "react-redux": "^7.0.3",
+    "react-signup-login-component": "^1.2.0",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   }
 }
