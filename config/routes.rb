@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  root to: "sessions#new"
+  namespace :api do
 
-  resources :parks do
-    put :favorite, on: :member
+    resources :users
+
+    get 'user', to: 'users#show', as: 'user_show'
+    post 'signup', to: 'users#create', as: 'user_signup'
+    post 'login', to: 'users#login', as: 'user_login'
+
+    resources :parks do
+      put :favorite, on: :member
+    end
+
   end
-
-  resources :users
 
 end

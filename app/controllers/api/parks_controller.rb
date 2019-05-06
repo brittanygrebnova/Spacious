@@ -1,4 +1,4 @@
-class ParksController < ApplicationController
+class Api::ParksController < ApplicationController
 
   def index
     parks = Park.all

@@ -32,6 +32,10 @@ gem 'active_model_serializers'
 
 gem 'foreman', '~> 0.82.0'
 
+gem 'bootstrap'
+
+gem 'jquery-rails'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
