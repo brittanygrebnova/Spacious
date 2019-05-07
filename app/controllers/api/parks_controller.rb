@@ -23,11 +23,6 @@ class Api::ParksController < ApplicationController
     render json: current_user.favorites
   end
 
-  def favorites
-    parks = current_user.favorites
-    render json: parks
-  end
-
   private
 
 end

@@ -1,25 +1,16 @@
 class Api::UsersController < ApplicationController
 
+  def favorites
+    parks = current_user.favorites
+    render json: parks
+  end
+
   def create
     user = User.create(user_params)
-
-    if user
-      jwt = Auth.encrypt({ user_id: user.id })
-      render json: { jwt: jwt, current: user }
-    else
-      render json: { error: 'Failed to Sign Up' }, status: 400
-    end
   end
 
   def login
-    user = User.find_by(username: params[:user][:username])
-
-    if user && user.authenticate(params[:user][:password])
-      jwt = Auth.encrypt({ user_id: user.id })
-      render json: { jwt: jwt, current: user }
-    else
-      render json: { error: 'Failed to Log In' }, status: 400
-    end
+    user = User.find_by(username: params[:username])
   end
 
   def show

@@ -1,13 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import NavBar from '../components/NavBar';
 
 
-function App() {
+const App = (props) => {
   return (
-    <div className="App">
-    </div>
+    <Router>
+      <div>
+        <NavBar component={NavBar} />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/parks" component={ParkList} />
+        <Route exact path="/favorites" component={Favorites} />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App
