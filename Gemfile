@@ -36,6 +36,8 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
+gem 'jwt'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

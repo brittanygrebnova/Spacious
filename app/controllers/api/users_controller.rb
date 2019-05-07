@@ -1,13 +1,24 @@
 class Api::UsersController < ApplicationController
 
-  def new
-    user = User.new
-  end
-
   def create
     user = User.create(user_params)
-    if user.valid?
-      session[:user_id] = user.id
+
+    if user
+      jwt = Auth.encrypt({ user_id: user.id })
+      render json: { jwt: jwt, current: user }
+    else
+      render json: { error: 'Failed to Sign Up' }, status: 400
+    end
+  end
+
+  def login
+    user = User.find_by(username: params[:user][:username])
+
+    if user && user.authenticate(params[:user][:password])
+      jwt = Auth.encrypt({ user_id: user.id })
+      render json: { jwt: jwt, current: user }
+    else
+      render json: { error: 'Failed to Log In' }, status: 400
     end
   end
 
@@ -15,16 +26,16 @@ class Api::UsersController < ApplicationController
     render json: get_current_user
   end
 
-
   private
 
   def user_params
-    params.require(:user).permit(:firstname, :lastname, :username)
+    params.require(:user).permit(
+        :username,
+        :password,
+        :password_confirmation,
+        :firstname,
+        :lastname
+      )
   end
-
-  def get_current_user
-    User.find(session[:user_id])
-  end
-
 
 end
