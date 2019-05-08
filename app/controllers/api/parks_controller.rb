@@ -23,6 +23,5 @@ class Api::ParksController < ApplicationController
     render json: current_user.favorites
   end
 
-  private
 
 end

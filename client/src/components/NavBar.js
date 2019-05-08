@@ -15,14 +15,6 @@ const NavBar = () => {
           exact
         >Home</NavLink></li>
         <li><NavLink
-          to="/login"
-          exact
-        >Log In</NavLink></li>
-        <li><NavLink
-          to="/signup"
-          exact
-        >Sign Up</NavLink></li>
-        <li><NavLink
           to="/parks"
           exact
         >Parks</NavLink></li>

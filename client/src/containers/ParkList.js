@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 
-import { fetchUser } from '../actions/userActions'
+class ParkList extends Component {
 
-const ParkList = () => {
+  render() {
+    const parks = this.props.parks.map((park, index) => <Park key={park.id} name={park.name}/>)
+  }
   return (
-    <div>
-      <h1>Park List</h1>
-    </div>
+    <div>{parks}</div>
   );
 };
 
