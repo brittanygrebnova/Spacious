@@ -40,8 +40,6 @@ export const signupUser = (user) => {
           type: 'SET_USER',
           payload: user
         })
-
-        callback()
       })
       .catch(err => err)
   }

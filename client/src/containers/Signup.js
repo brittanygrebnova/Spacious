@@ -6,8 +6,8 @@ import { withRouter, Link } from 'react-router-dom'
 import { signupUser } from '../actions/userActions'
 
 class Signup extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       username: '',

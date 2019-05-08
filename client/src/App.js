@@ -3,7 +3,11 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
-import NavBar from '../components/NavBar';
+import NavBar from './components/NavBar';
+import Home from './containers/Home'
+import Login from './containers/Login'
+import Signup from './containers/Signup'
+import ParkList from './containers/ParkList'
 
 
 const App = (props) => {
@@ -15,7 +19,6 @@ const App = (props) => {
         <Route exact path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/parks" component={ParkList} />
-        <Route exact path="/favorites" component={Favorites} />
       </div>
     </Router>
   );

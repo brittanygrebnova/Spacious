@@ -2,45 +2,32 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
-  const link = {
-    width: '100px',
-    padding: '12px',
-    margin: '0 6px 6px',
-    background: 'blue',
-    textDecoration: 'none',
-    color: 'white',
-    }
 
   return (
-    <div className="navbar">
-      <NavLink
-        to="/"
-        /* set exact so it knows to only set activeStyle when route is deeply equal to link */
-        exact
-        /* add styling to Navlink */
-        style={link}
-        /* add prop for activeStyle */
-        activeStyle={{
-          background: 'darkblue'
-        }}
-      >Home</NavLink>
-      <NavLink
-        to="/parks"
-        exact
-        style={link}
-        activeStyle={{
-          background: 'darkblue'
-        }}
-      >Parks</NavLink>
-      <NavLink
-        to="/favorites"
-        exact
-        style={link}
-        activeStyle={{
-          background: 'darkblue'
-        }}
-      >Favorites</NavLink>
-    </div>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">ParkZuckerburg</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><NavLink
+          to="/"
+          /* set exact so it knows to only set activeStyle when route is deeply equal to link */
+          exact
+        >Home</NavLink></li>
+        <li><NavLink
+          to="/login"
+          exact
+        >Log In</NavLink></li>
+        <li><NavLink
+          to="/signup"
+          exact
+        >Sign Up</NavLink></li>
+        <li><NavLink
+          to="/parks"
+          exact
+        >Parks</NavLink></li>
+      </ul>
+    </nav>
   )
 }
 
