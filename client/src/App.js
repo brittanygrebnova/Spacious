@@ -1,29 +1,36 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from 'react-router-dom';
-import NavBar from './components/NavBar';
-import Home from './containers/Home'
-import ParkList from './containers/ParkList'
-import { bindActionCreators } from 'redux'
+import React, { Component } from 'react'
+import { Navbar } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { fetchParks } from './actions/parkActions'
+import ParkList from './containers/ParkList'
 
 
-const App = (props) => {
+class App extends Component {
 
-  // const isLoggedIn = () => {
-  //   !this.props.username = ''
-  // }
-  return (
-    <Router>
-      <div>
-        <NavBar component={NavBar} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/parks" component={ParkList} />
+  componentDidMount() {
+    this.props.fetchParks()
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <ParkList allParks={ this.props.allParks } />
       </div>
-    </Router>
-  );
-};
+    )
+  }
+}
 
-export default App
+const mapStateToProps = (state) => {
+  return {
+    allParks: state.allParks
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchParks: () => dispatch(fetchParks())
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (App)

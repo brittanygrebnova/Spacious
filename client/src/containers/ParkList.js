@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
+import Park from '../components/Park'
 
 class ParkList extends Component {
 
   render() {
-    const parks = this.props.parks.map((park, index) => <Park key={park.id} name={park.name}/>)
+
+    // const renderParks = this.props.allParks.map((park, index) => <Park key={park.id} park={park}/>)
+
+    return (
+      <div>ParkList Component</div>
+    )
   }
-  return (
-    <div>{parks}</div>
-  );
-};
+}
 
 export default ParkList

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
@@ -6,7 +6,6 @@ const NavBar = () => {
   return (
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">ParkZuckerburg</a>
       </div>
       <ul class="nav navbar-nav">
         <li><NavLink
