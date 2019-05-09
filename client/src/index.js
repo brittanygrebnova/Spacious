@@ -21,13 +21,6 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
-
-
-// const store = createStore(
-//   reducers,
-//   composeEnhancer(applyMiddleware(thunk)),
-// );
-
 export default store;
 
 // If you want your app to work offline and load faster, you can change

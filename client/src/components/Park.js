@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 
-const Park = () => {
+const Park = ({park}) => {
 
   return (
     <div>
-      <h1>Park Component</h1>
+      <h1>{park.name}</h1>
+      <h3>{park.states}</h3>
+      <p>{park.description}></p>
+      <button>Add To Favorites</button>
     </div>
   )
 }
