@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Navbar } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import { fetchParks } from './actions/parkActions'
-import ParkList from './containers/ParkList'
+import AllParks from './containers/AllParks'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 class App extends Component {
@@ -13,9 +14,22 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <ParkList />
-      </div>
+      <Router>
+        <div className="App">
+          <nav>
+            <ul>
+              <li>
+                <Link to="/">All Parks</Link>
+              </li>
+              <li>
+                <Link to="/favorites">Your Favorites</Link>
+              </li>
+            </ul>
+          </nav>
+
+          <Route path="/" exact component={AllParks} />
+        </div>
+      </Router>
     )
   }
 }

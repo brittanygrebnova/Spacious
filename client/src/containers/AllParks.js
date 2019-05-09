@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Park from '../components/Park'
 import {connect} from 'react-redux'
 
-class ParkList extends Component {
+class AllParks extends Component {
 
   render() {
 
@@ -22,4 +22,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(ParkList)
+export default connect(mapStateToProps)(AllParks)
