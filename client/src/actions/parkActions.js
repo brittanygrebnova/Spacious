@@ -8,7 +8,7 @@ export function fetchParks(dispatch) {
     .then(response => {
       return response.json()
     }).then(parks => {
-     return dispatch({ type: 'FETCH_PARKS', payload: parks.data})
-    })
+     return dispatch({ type: 'FETCH_PARKS', payload: parks.data })
+   }, () => console.log(this.state.allParks))
   }
 }

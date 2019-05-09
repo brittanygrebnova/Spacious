@@ -14,15 +14,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ParkList allParks={ this.props.allParks } />
+        <ParkList />
       </div>
     )
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    allParks: state.allParks
   }
 }
 
@@ -33,4 +27,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps) (App)
+export default connect(null, mapDispatchToProps) (App)
