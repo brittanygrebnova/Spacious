@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 
-export const fetchUsers(dispatch) {
+export function fetchUsers(dispatch) {
   return (dispatch) => {
     dispatch({ type: 'LOADING_USERS' });
     return fetch('/api/users')
@@ -8,9 +8,9 @@ export const fetchUsers(dispatch) {
       return response.json()
     }).then(users => {
       return dispatch({ type: 'FETCH_USERS', payload: users })
-    }, () => console.log(this.state.users.allUsers))
+    })
   }
-} 
+}
 
 export const loginUser = (user) => {
   let data = {

@@ -10,11 +10,12 @@ class Login extends Component {
     // const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="#" key={user.id}>user.firstname</a>)
 
     return (
-
-      <div class="dropdown">
-        <button class="dropbtn">Choose Your Username</button>
-        <div class="dropdown-content">
-          <a href="#">First User</a>
+      <div class="content">
+        <div class="dropdown">
+          <button class="dropbtn">Choose Your Username</button>
+          <div class="dropdown-content">
+            <a href="#">First User</a>
+          </div>
         </div>
       </div>
     )

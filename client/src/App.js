@@ -1,43 +1,35 @@
 import React, { Component } from 'react'
 import './App.css'
 import { connect } from 'react-redux'
-import { fetchParks } from './actions/parkActions'
-import AllParks from './containers/AllParks'
-import Login from './containers/Login'
-import FavoriteParks from './containers/FavoriteParks'
+import { fetchUsers } from './actions/userActions'
+import Login from './components/Login'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 class App extends Component {
 
   componentDidMount() {
-    this.props.fetchParks()
+    this.props.fetchUsers()
   }
 
   render() {
-    return (
-      <Router>
-        <div className="App">
-          <nav>
-            <Link to="/">All Parks</Link><br />
-            <Link to="/login">Log In</Link><br />
-            <Link to="/favorites">Your Favorites</Link>
-          </nav>
-
-          <Route path="/" exact component={AllParks} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/favorites" exact component={FavoriteParks} />
-        </div>
-      </Router>
+    return(
+      <Login allUsers={this.props.allUsers} />
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    allUsers: state.parks.allUsers
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchParks: () => dispatch(fetchParks())
+    fetchUsers: () => dispatch(fetchUsers())
   }
 }
 
 
-export default connect(null, mapDispatchToProps) (App)
+export default connect(mapStateToProps, mapDispatchToProps) (App)
