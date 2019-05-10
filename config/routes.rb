@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :users do
       get :favorites, on: :member
       post :add_to_favorites, on: :member
-      post :unfavorite, on: :member
+      post :remove_from_favorites, on: :member
     end
 
     resources :parks do

@@ -14,7 +14,7 @@ class App extends Component {
 
   render() {
     return(
-      <Login allUsers={this.props.allUsers} />
+      <Login allUsers={this.props.allUsers} setUser={this.props.setUser}/>
     )
   }
 }
@@ -27,7 +27,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUsers: () => dispatch(fetchUsers())
+    fetchUsers: () => dispatch(fetchUsers()),
+    setUser: () => dispatch(setUser())
   }
 }
 
