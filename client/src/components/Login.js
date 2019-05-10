@@ -7,7 +7,12 @@ class Login extends Component {
 
     console.log(this.props.allUsers)
 
-    const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="#" key={user.id}>{user.firstname} {user.lastname}</a>)
+    this.handleClick = (event) => {
+      event.preventDefault()
+      history.push("/all")
+    }
+
+    const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="/all" key={index}  id={user.id}>{user.firstname} {user.lastname}</a>)
 
     return (
       <div className="center-dropdown">

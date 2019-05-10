@@ -19,13 +19,11 @@ class Home extends Component {
       <Router>
         <div className="Home">
           <nav>
-            <Link to="/">All Parks</Link><br />
-            <Link to="/login">Log In</Link><br />
+            <Link to="/all">All Parks</Link><br />
             <Link to="/favorites">Your Favorites</Link>
           </nav>
 
-          <Route path="/" exact component={AllParks} />
-          <Route path="/login" exact component={Login} />
+          <Route path="/all" exact component={AllParks} />
           <Route path="/favorites" exact component={FavoriteParks} />
         </div>
       </Router>

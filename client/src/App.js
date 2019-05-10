@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import { connect } from 'react-redux'
-import { fetchUsers } from './actions/userActions'
+import { fetchUsers, setUser } from './actions/userActions'
 import Login from './components/Login'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 

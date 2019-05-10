@@ -12,7 +12,7 @@ export function fetchUsers(dispatch) {
   }
 }
 
-export const setUser = (user)  => {
+export function setUser(user) {
   return (dispatch) => {
     dispatch({ type: 'RETRIEVING_SELECTED_USER' })
     return fetch (`/api/users/${user.id}`)
