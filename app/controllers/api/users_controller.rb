@@ -5,21 +5,29 @@ class Api::UsersController < ApplicationController
     render json: users
   end
 
+  def create
+    user = User.create(user_params)
+  end
+
+  def show
+    render json: current_user
+  end
+
   def favorites
     parks = current_user.favorites
     render json: parks
   end
 
-  def create
-    user = User.create(user_params)
+  def add_to_favorites
+    current_user.favorites << park
+    render json: current_user.favorites
   end
 
-  def login
-    user = User.find_by(username: params[:username])
-  end
 
-  def show
-    render json: get_current_user
+  def unfavorite
+    park = Park.find(params[:id])
+    current_user.favorites.delete(park)
+    render json: current_user.favorites
   end
 
   private
@@ -32,6 +40,10 @@ class Api::UsersController < ApplicationController
         :firstname,
         :lastname
       )
+  end
+
+  def current_user
+    current_user = User.find(params[:id])
   end
 
 end

@@ -11,26 +11,3 @@ export function fetchUsers(dispatch) {
     }, () => console.log(this.state.user.allUsers))
   }
 }
-
-export const loginUser = (user) => {
-  let data = {
-    method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
-  }
-
-  return dispatch => {
-    fetch(`/api/users/${user.id}`, data)
-      .then(response => response.json())
-      .then(userData => {
-
-        dispatch({
-          type: 'SET_USER',
-          payload: userData
-        })
-      })
-      .catch(err => err)
-  }
-}

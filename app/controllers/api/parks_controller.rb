@@ -10,17 +10,9 @@ class Api::ParksController < ApplicationController
     render json: park
   end
 
-  def add_to_favorites
+  def favorited_by
     park = Park.find(params[:id])
-    current_user.favorites << park
-    render json: current_user.favorites
-  end
-
-
-  def unfavorite
-    park = Park.find(params[:id])
-    current_user.favorites.delete(park)
-    render json: current_user.favorites
+    render json: park.favorited_by
   end
 
 
