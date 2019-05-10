@@ -23,12 +23,16 @@ class App extends Component {
                 <Link to="/">All Parks</Link>
               </li>
               <li>
+                <Link to="/login">Log In</Link>
+              </li>
+              <li>
                 <Link to="/favorites">Your Favorites</Link>
               </li>
             </ul>
           </nav>
 
           <Route path="/" exact component={AllParks} />
+          <Route path="/login" exact component={Login} />
           <Route path="/favorites" exact component={FavoriteParks} />
         </div>
       </Router>
