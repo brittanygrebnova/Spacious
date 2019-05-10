@@ -1,22 +1,24 @@
 import React, {Component} from "react";
+import '../Login.css'
 
 class Login extends Component {
 
-  constructor(props) {
-    super(props);
+  render() {
 
-    this.state = {
-      users: []
-    }
-  }
+    console.log(this.props.allUsers)
 
-  componentDidMount() {
-    this.props.fetchUsers()
+    // const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="#" key={user.id}>user.firstname</a>)
+
+    return (
+
+      <div class="dropdown">
+        <button class="dropbtn">Choose Your Username</button>
+        <div class="dropdown-content">
+          <a href="#">First User</a>
+        </div>
+      </div>
+    )
   }
 }
 
-// <h1>O beautiful
-//     for SPACIOUS skies,
-//     for amber waves of grain
-// </h1>
-// <h3>Find Your Username</h3>
+export default Login

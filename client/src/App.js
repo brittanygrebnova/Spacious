@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { Navbar } from 'react-bootstrap'
+import './App.css'
 import { connect } from 'react-redux'
 import { fetchParks } from './actions/parkActions'
 import AllParks from './containers/AllParks'
+import Login from './containers/Login'
 import FavoriteParks from './containers/FavoriteParks'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
@@ -18,17 +19,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <nav>
-            <ul>
-              <li>
-                <Link to="/">All Parks</Link>
-              </li>
-              <li>
-                <Link to="/login">Log In</Link>
-              </li>
-              <li>
-                <Link to="/favorites">Your Favorites</Link>
-              </li>
-            </ul>
+            <Link to="/">All Parks</Link><br />
+            <Link to="/login">Log In</Link><br />
+            <Link to="/favorites">Your Favorites</Link>
           </nav>
 
           <Route path="/" exact component={AllParks} />
