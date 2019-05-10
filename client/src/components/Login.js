@@ -7,14 +7,15 @@ class Login extends Component {
 
     console.log(this.props.allUsers)
 
-    // const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="#" key={user.id}>user.firstname</a>)
+    const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="#" key={user.id}>{user.firstname} {user.lastname}</a>)
 
     return (
-      <div class="content">
+      <div class="center-dropdown">
+      <h1>SPACIOUS</h1>
         <div class="dropdown">
           <button class="dropbtn">Choose Your Username</button>
           <div class="dropdown-content">
-            <a href="#">First User</a>
+            {mapUsersForDropdown}
           </div>
         </div>
       </div>

@@ -21,7 +21,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    allUsers: state.parks.allUsers
+    allUsers: state.user.allUsers
   }
 }
 

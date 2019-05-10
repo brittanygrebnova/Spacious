@@ -8,7 +8,7 @@ export function fetchUsers(dispatch) {
       return response.json()
     }).then(users => {
       return dispatch({ type: 'FETCH_USERS', payload: users })
-    })
+    }, () => console.log(this.state.user.allUsers))
   }
 }
 
