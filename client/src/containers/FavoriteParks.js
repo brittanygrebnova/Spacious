@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Park from '../components/Park'
+import Park from '../components/park'
 import {connect} from 'react-redux'
 
 class FavoriteParks extends Component {
@@ -8,7 +8,11 @@ class FavoriteParks extends Component {
 
     console.log(this.props.favoriteParks)
 
-    const renderParks = this.props.favoriteParks.map((park, index) => <Park key={park.id} park={park}/>)
+    const renderParks = () => {
+      if (this.props.favoriteParks) {
+        this.props.favoriteParks.map((park, index) => <Park key={park.id} park={park}/>)
+      }
+    }
 
     return (
       <div>{renderParks}</div>
@@ -18,7 +22,7 @@ class FavoriteParks extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    favoriteParks: state.users.favorites
+    favoriteParks: state.user.currentUser.favorites
   }
 }
 

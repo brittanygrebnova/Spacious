@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
-import Park from '../components/Park'
+import Park from '../components/park'
 import {connect} from 'react-redux'
+import '../App.css'
+import { fetchParks } from '../actions/parkActions'
+import Login from '../components/login'
+import FavoriteParks from '../containers/favoriteParks'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class AllParks extends Component {
+
+  componentDidMount() {
+    this.props.fetchParks()
+  }
 
   render() {
 
@@ -22,4 +31,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(AllParks)
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchParks: () => dispatch(fetchParks())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllParks)

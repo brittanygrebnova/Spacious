@@ -1,7 +1,13 @@
 import React, {Component} from "react";
-import '../Login.css'
+import '../Login.css';
+import Home from '../containers/home';
+import { withRouter } from 'react-router';
 
 class Login extends Component {
+
+  componentDidMount() {
+    this.props.fetchUsers()
+  }
 
   render() {
 
@@ -9,10 +15,17 @@ class Login extends Component {
 
     this.handleClick = (event) => {
       event.preventDefault()
-      history.push("/all")
+      this.props.setUser(event.target.id)
+      this.props.history.push('/all')
     }
 
-    const mapUsersForDropdown = this.props.allUsers.map((user, index) => <a href="/all" key={index}  id={user.id}>{user.firstname} {user.lastname}</a>)
+    const mapUsersForDropdown = this.props.allUsers.map((user, index) => {
+      return (
+        <a href="/all" key={user.id} id={user.id} onClick={this.handleClick}>
+          {user.firstname} {user.lastname}
+        </a>
+      )
+    })
 
     return (
       <div className="center-dropdown">
@@ -28,4 +41,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

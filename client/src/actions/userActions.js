@@ -12,14 +12,24 @@ export function fetchUsers(dispatch) {
   }
 }
 
-export function setUser(user) {
-  return (dispatch) => {
-    dispatch({ type: 'RETRIEVING_SELECTED_USER' })
-    return fetch (`/api/users/${user.id}`)
+export const setUser = id => {
+  console.log(id)
+  let data = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return dispatch => {
+    fetch (`/api/users/${id}`, data)
     .then(response => {
       return response.json()
     }).then (user => {
-      return dispatch({ type: 'SET_USER', payload: user })
+      return dispatch({
+        type: 'SET_USER',
+        payload: user
+      })
     })
   }
 }
