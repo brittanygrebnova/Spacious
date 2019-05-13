@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 import '../Login.css';
-import Home from '../containers/home';
-import { withRouter } from 'react-router';
+import { fetchUsers, setUser } from '../actions/userActions'
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux'
 
 class Login extends Component {
 
@@ -16,12 +17,12 @@ class Login extends Component {
     this.handleClick = (event) => {
       event.preventDefault()
       this.props.setUser(event.target.id)
-      this.props.history.push('/all')
+      console.log(this.props)
     }
 
     const mapUsersForDropdown = this.props.allUsers.map((user, index) => {
       return (
-        <a href="/all" key={user.id} id={user.id} onClick={this.handleClick}>
+        <a href="/all" key={user.id} id={user.id} onClick={this.handleClick} name={user.firstname}>
           {user.firstname} {user.lastname}
         </a>
       )
@@ -41,4 +42,16 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login)
+const mapStateToProps = (state) => {
+  return {
+    allUsers: state.user.allUsers,
+    currentUser: state.user.currentUser
+  }
+}
+
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchUsers,
+  setUser
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

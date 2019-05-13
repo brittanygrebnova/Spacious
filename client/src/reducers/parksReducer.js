@@ -1,6 +1,6 @@
 const initialState = {
   loading: false,
-  chosenPark: {},
+  selectedPark: null,
   allParks: [],
 }
 
@@ -11,7 +11,7 @@ export default function parksReducer(state = initialState, action) {
     case 'FETCH_PARKS':
       return { ...state, loading: false, allParks: action.payload }
     case 'PARK_SELECTED':
-      return { ...state, loading: false, chosenPark: action.payload}
+      return { ...state, loading: false, selectedPark: action.payload}
     default: return state
   }
 }

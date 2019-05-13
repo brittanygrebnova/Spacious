@@ -1,26 +1,46 @@
 import React, { Component } from 'react'
-import Park from '../components/park'
 import {connect} from 'react-redux'
+import { fetchParks, selectPark } from '../actions/parkActions'
 import '../App.css'
-import { fetchParks } from '../actions/parkActions'
-import Login from '../components/login'
-import FavoriteParks from '../containers/favoriteParks'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { bindActionCreators } from 'redux'
 
 class AllParks extends Component {
 
+  //build an onSelectPark function to show park details
+  //filter parks by state to reduce load time
   componentDidMount() {
     this.props.fetchParks()
   }
 
   render() {
 
-    console.log(this.props.allParks)
+    console.log(this.props)
 
-    const renderParks = this.props.allParks.map((park, index) => <Park key={park.id} park={park}/>)
+    const renderParksTable = () => {
+      return this.props.allParks.map((park, index) => {
+        return (
+          <tbody key={park.parkCode}>
+            <tr>
+              <th>{park.name}</th>
+            </tr>
+            <tr>
+              <td>{park.description}</td>
+            </tr>
+            <tr>
+              <td><button onClick={() => this.props.selectPark(park)}>View All Details</button></td>
+            </tr>
+          </tbody>
+        )
+      })
+    }
 
     return (
-      <div>{renderParks}</div>
+      <div id="parks-table">
+        <h1>All The Parks</h1>
+          <table id="all-parks">
+            {renderParksTable()}
+          </table>
+      </div>
     )
   }
 }
@@ -31,10 +51,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchParks: () => dispatch(fetchParks())
-  }
-}
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  fetchParks,
+  selectPark
+}, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllParks)

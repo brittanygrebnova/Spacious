@@ -32,4 +32,6 @@ export const setUser = id => {
       })
     })
   }
+
+//create addToFavorites: post request to loggedInUser.favorites
 }

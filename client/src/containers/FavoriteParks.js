@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Park from '../components/park'
+import ParkDetail from '../components/ParkDetail'
 import {connect} from 'react-redux'
 
 class FavoriteParks extends Component {
@@ -10,7 +10,7 @@ class FavoriteParks extends Component {
 
     const renderParks = () => {
       if (this.props.favoriteParks) {
-        this.props.favoriteParks.map((park, index) => <Park key={park.id} park={park}/>)
+        this.props.favoriteParks.map((park, index) => <ParkDetail key={park.id} park={park}/>)
       }
     }
 
