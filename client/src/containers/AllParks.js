@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { fetchParks, selectPark } from '../actions/parkActions'
+import { fetchParks, selectPark } from '../actions/ParkActions'
 import '../App.css'
 import { bindActionCreators } from 'redux'
 
@@ -19,27 +19,21 @@ class AllParks extends Component {
     const renderParksTable = () => {
       return this.props.allParks.map((park, index) => {
         return (
-          <tbody key={park.parkCode}>
-            <tr>
-              <th>{park.name}</th>
-            </tr>
-            <tr>
-              <td>{park.description}</td>
-            </tr>
-            <tr>
-              <td><button onClick={() => this.props.selectPark(park)}>View All Details</button></td>
-            </tr>
-          </tbody>
+          <div className="item" key={park.parkCode}>
+            <div className="right floated content">
+              <i className="caret up icon"></i>
+              <a className="header" onClick={() => this.props.selectPark(park)}>{park.name}</a>
+              <div className="description">{park.description.substring(0, 75)}...</div>
+            </div>
+          </div>
         )
       })
     }
 
     return (
-      <div id="parks-table">
+      <div className="ui list">
         <h1>All The Parks</h1>
-          <table id="all-parks">
-            {renderParksTable()}
-          </table>
+          {renderParksTable()}
       </div>
     )
   }

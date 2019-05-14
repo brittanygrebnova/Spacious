@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import './App.css'
-import Login from './components/login'
+import Login from './components/Login'
 import ParkDetail from './components/ParkDetail'
-import AllParks from './containers/allParks';
+import AllParks from './containers/AllParks';
 import { Router } from 'react-router';
 import createHistory from 'history/createBrowserHistory';
 
@@ -13,17 +12,17 @@ class App extends Component {
   render() {
 
     return(
-      <Router history={history}>
-        <div id="login">
-          <Login />
-        </div><br/>
-        <div id="all-parks">
-          <AllParks />
-        </div><br/>
-        <div id="park-detail">
-          <ParkDetail />
+      <div className="ui container grid">
+        <div className="ui row">
+          <div className="column eight wide">
+            <AllParks />
+          </div>
+          <div className="column eight wide">
+            <ParkDetail />
+          </div>
+          </div>
         </div>
-      </Router>
+
     )
   }
 }

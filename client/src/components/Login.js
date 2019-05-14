@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import '../Login.css';
-import { fetchUsers, setUser } from '../actions/userActions'
+import { fetchUsers, setUser } from '../actions/UserActions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
@@ -17,7 +17,6 @@ class Login extends Component {
     this.handleClick = (event) => {
       event.preventDefault()
       this.props.setUser(event.target.id)
-      console.log(this.props)
     }
 
     const mapUsersForDropdown = this.props.allUsers.map((user, index) => {
