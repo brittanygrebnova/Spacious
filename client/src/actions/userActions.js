@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 
-export function fetchUsers(dispatch) {
+export const fetchUsers = stateCode => {
+  console.log(stateCode)
   return (dispatch) => {
     dispatch({ type: 'LOADING_USERS' })
     return fetch('/api/users')

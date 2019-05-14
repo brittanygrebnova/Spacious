@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-fetch'
 
-export function fetchParks(dispatch) {
+export const fetchParks = (selectedStateCode) => {
   const apiKey = 'wKNLKokoUQpza8hntMcGzdtVxYVKZbhETAxDBiAD'
+  const parkCode = selectedStateCode
   return (dispatch) => {
     dispatch({ type: 'LOADING_PARKS' });
-    return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=ca&limit=500&api_key=${apiKey}`)
+    return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=${selectedStateCode}&limit=500&api_key=${apiKey}`)
     .then(response => {
       return response.json()
     }).then(parks => {
