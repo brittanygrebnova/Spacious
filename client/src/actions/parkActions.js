@@ -13,6 +13,15 @@ export function fetchParks(dispatch) {
   }
 }
 
+export const selectState = state => {
+  return dispatch => {
+    dispatch({
+      type: 'STATE_SELECTED',
+      payload: state
+    })
+  }
+}
+
 export const selectPark = park => {
   return dispatch => {
     dispatch({
