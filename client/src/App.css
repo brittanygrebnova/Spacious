@@ -2,6 +2,21 @@
   /* text-align: center; */
 }
 
+h1.header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  font-weight: 900;
+}
+
+h2.header {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  padding-bottom: 30px;
+  font-weight: 200;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;

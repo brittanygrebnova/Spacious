@@ -1,31 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { addParkToUserFavorites } from '../actions/UserActions'
 
-const ParkDetail = (props) => {
+const ParkDetail = ({ selectedPark, currentUser }) => {
 
-  console.log(props)
+  console.log({ selectedPark })
 
   const renderParkDetail = () => {
-      if (props.selectedPark) {
+      if (selectedPark) {
         return (
         <div className="ui cards">
           <div className="card">
             <div className="content">
-              <div className="header">{props.selectedPark.name}</div>
+              <div className="header">{selectedPark.name}</div>
               <div className="description">
-                <strong>Description: </strong>{props.selectedPark.description}
+                <strong>Description: </strong>{selectedPark.description}
               </div>
               <div className="description">
-                <strong>States: </strong>{props.selectedPark.states}
+                <strong>States: </strong>{selectedPark.states}
               </div>
               <div className="description">
-                <strong>Directions: </strong><a href={props.selectedPark.directionsUrl} target="_blank">{props.selectedPark.directionsUrl}</a>
+                <strong>Directions: </strong><a href={selectedPark.directionsUrl} target="_blank">{selectedPark.directionsUrl}</a>
               </div>
               <div className="description">
-                <strong>Weather: </strong>{props.selectedPark.weatherInfo}
+                <strong>Weather: </strong>{selectedPark.weatherInfo}
               </div>
             </div>
-            <div className="ui bottom attached button" onClick={() => this.props.addToFavorites()}>
+            <div className="ui bottom attached button" onClick={() => console.log(currentUser)}>
               <i className="add icon"></i>
               Add To Favorites
             </div>
@@ -44,9 +46,14 @@ const ParkDetail = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    selectedPark: state.parks.selectedPark
+    selectedPark: state.parks.selectedPark,
+    currentUser: state.user.currentUser
   }
 }
 
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  addParkToUserFavorites
+}, dispatch)
 
-export default connect(mapStateToProps)(ParkDetail)
+
+export default connect(mapStateToProps, mapDispatchToProps)(ParkDetail)

@@ -35,3 +35,7 @@ export const setUser = id => {
 
 //create addToFavorites: post request to loggedInUser.favorites
 }
+
+export const addParkToUserFavorites = (park, user) => {
+  console.log(park, user)
+}

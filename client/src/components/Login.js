@@ -1,42 +1,42 @@
 import React, {Component} from "react";
 import '../Login.css';
 import { fetchUsers, setUser } from '../actions/UserActions'
+import StateDropdown from './StateDropdown'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
 class Login extends Component {
 
+  constructor(props) {
+    super(props)
+  }
+
   componentDidMount() {
     this.props.fetchUsers()
+  }
+
+  handleChange(event) {
+    console.log(event.target.value)
+    this.props.setUser(event.target.value)
   }
 
   render() {
 
     console.log(this.props.allUsers)
 
-    this.handleClick = (event) => {
-      event.preventDefault()
-      this.props.setUser(event.target.id)
-    }
-
     const mapUsersForDropdown = this.props.allUsers.map((user, index) => {
       return (
-        <a href="/all" key={user.id} id={user.id} onClick={this.handleClick} name={user.firstname}>
+        <option value={user.id} key={user.id} id={user.id}>
           {user.firstname} {user.lastname}
-        </a>
+        </option>
       )
     })
 
     return (
-      <div className="center-dropdown">
-      <h1>SPACIOUS</h1>
-        <div className="dropdown">
-          <button className="dropbtn">Choose Your Username</button>
-          <div className="dropdown-content">
-            {mapUsersForDropdown}
-          </div>
-        </div>
-      </div>
+      <select className="ui search dropdown" onChange={(e) => this.handleChange(e)}>
+        <option value="">Find Your Name</option>
+        {mapUsersForDropdown}
+      </select>
     )
   }
 }

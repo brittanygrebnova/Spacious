@@ -20,7 +20,7 @@ class AllParks extends Component {
       return this.props.allParks.map((park, index) => {
         return (
           <div className="item" key={park.parkCode}>
-            <div className="right floated content">
+            <div className="content">
               <i className="caret up icon"></i>
               <a className="header" onClick={() => this.props.selectPark(park)}>{park.name}</a>
               <div className="description">{park.description.substring(0, 75)}...</div>
@@ -32,8 +32,7 @@ class AllParks extends Component {
 
     return (
       <div className="ui list">
-        <h1>All The Parks</h1>
-          {renderParksTable()}
+        {renderParksTable()}
       </div>
     )
   }
@@ -41,7 +40,7 @@ class AllParks extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    allParks: state.parks.allParks
+    allParks: state.parks.allParks,
   }
 }
 
