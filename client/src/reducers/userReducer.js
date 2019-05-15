@@ -14,7 +14,7 @@ export default function userReducer(state = initialState, action) {
     case 'RETRIEVING_SELECTED_USER':
       return { ...state, loading: true }
     case 'SET_USER':
-      return { ...state, currentUser: state.allUsers.filter(user => user.id == action.payload.id) }
+      return { ...state, currentUser: state.allUsers.filter(user => user.id === action.payload.id) }
     case 'ADD_TO_FAVORITES':
       return { ...state, currentUserFavorites: [...state.currentUserFavorites, action.payload] }
     case 'REMOVE_FROM_FAVORITES':

@@ -3,8 +3,10 @@ import Login from './components/Login'
 import ParkDetail from './components/ParkDetail'
 import AllParks from './containers/AllParks';
 import StateDropdown from './components/StateDropdown'
-import { Router } from 'react-router';
 import createHistory from 'history/createBrowserHistory';
+import Navbar from './components/Navbar'
+import FavoriteParks from './components/FavoriteParks'
+import { BrowserRouter, Route } from 'react-router-dom';
 
 const history = createHistory();
 
@@ -15,26 +17,26 @@ class App extends Component {
     return(
       <div>
         <div>
-          <h1 className="header">Spacious</h1>
-          <h2 className="header">Discover America's National Parks</h2>
+          <BrowserRouter>
+            <React.Fragment>
+              <Route>
+                <Navbar />
+              </Route>
+              <Route exact path="/" component={Login}/>
+              <Route exact path="/all" component={AllParks}/>
+              <Route exact path="/favorites" component={FavoriteParks}/>
+            </React.Fragment>
+          </BrowserRouter>
         </div>
-          <div className="ui grid">
-            <div className="eight wide column">
-              <Login />
-            </div>
-            <div className="eight wide column">
-              <StateDropdown />
-            </div>
+        <div>
+          <div>
+            <h1 className="header">Spacious</h1>
+            <h2 className="header">Discover America's National Parks</h2>
           </div>
-        <div className="ui grid">
-          <div className="eight wide column">
-            <AllParks />
-          </div>
-          <div className="eight wide column">
-            <ParkDetail />
+            <div className="ui grid">
+            </div>
           </div>
         </div>
-      </div>
     )
   }
 }

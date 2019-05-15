@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import '../Login.css';
 import { fetchUsers, setUser } from '../actions/UserActions'
-import StateDropdown from './StateDropdown'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 
