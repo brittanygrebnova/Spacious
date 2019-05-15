@@ -20,8 +20,12 @@ class Api::UsersController < ApplicationController
   end
 
   def add_to_favorites
-    current_user.favorites << park
-    render json: current_user.favorites
+    current_user = User.find(params[:id])
+    park = Park.find_or_create_by(park_params)
+    if !current_user.favorites.include?(park)
+      current_user.favorites << park
+      render json: current_user.favorites
+    end
   end
 
 
@@ -41,6 +45,14 @@ class Api::UsersController < ApplicationController
         :firstname,
         :lastname
       )
+  end
+
+  def park_params
+    params.require(:park).permit(
+      :name,
+      :description,
+      :url,
+    )
   end
 
   # def current_user

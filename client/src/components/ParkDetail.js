@@ -1,47 +1,53 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { addParkToUserFavorites } from '../actions/UserActions'
 
-const ParkDetail = ({ selectedPark, currentUser }) => {
+class ParkDetail extends Component {
 
-  console.log({ selectedPark })
-
-  const renderParkDetail = () => {
-      if (selectedPark) {
-        return (
-        <div className="ui cards">
-          <div className="card">
-            <div className="content">
-              <div className="header">{selectedPark.name}</div>
-              <div className="description">
-                <strong>Description: </strong>{selectedPark.description}
-              </div>
-              <div className="description">
-                <strong>States: </strong>{selectedPark.states}
-              </div>
-              <div className="description">
-                <strong>Directions: </strong><a href={selectedPark.directionsUrl} target="_blank">{selectedPark.directionsUrl}</a>
-              </div>
-              <div className="description">
-                <strong>Weather: </strong>{selectedPark.weatherInfo}
-              </div>
-            </div>
-            <div className="ui bottom attached button" onClick={() => console.log(currentUser)}>
-              <i className="add icon"></i>
-              Add To Favorites
-            </div>
-          </div>
-        </div>
-      )
-    }
+  constructor(props) {
+    super(props)
   }
 
-  return (
-    <div>
-      {renderParkDetail()}
-    </div>
-  )
+  render() {
+
+    const renderParkDetail = () => {
+        if (this.props.selectedPark) {
+          return (
+          <div className="ui cards">
+            <div className="card">
+              <div className="content">
+                <div className="header">{this.props.selectedPark.name}</div>
+                <div className="description">
+                  <strong>Description: </strong>{this.props.selectedPark.description}
+                </div>
+                <div className="description">
+                  <strong>States: </strong>{this.props.selectedPark.states}
+                </div>
+                <div className="description">
+                  <strong>Directions: </strong><a href={this.props.selectedPark.directionsUrl} target="_blank">{this.props.selectedPark.directionsUrl}</a>
+                </div>
+                <div className="description">
+                  <strong>Weather: </strong>{this.props.selectedPark.weatherInfo}
+                </div>
+              </div>
+              <div className="ui bottom attached button" onClick={() => this.props.addParkToUserFavorites(this.props.selectedPark, this.props.currentUser)}>
+                <i className="add icon"></i>
+                Add To Favorites
+              </div>
+            </div>
+          </div>
+        )
+      }
+    }
+
+    return (
+      <div>
+        {renderParkDetail()}
+      </div>
+    )
+  }
+
 }
 
 const mapStateToProps = (state) => {

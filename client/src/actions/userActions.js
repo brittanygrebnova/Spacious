@@ -33,10 +33,24 @@ export const setUser = id => {
       })
     })
   }
-
-//create addToFavorites: post request to loggedInUser.favorites
 }
 
-export const addParkToUserFavorites = (park, user) => {
-  console.log(park, user)
+export const addParkToUserFavorites = (selectedPark, user) => {
+  let id = user[0].id
+  let data = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ park: selectedPark })
+  }
+
+  return dispatch => {
+    fetch (`/api/users/${id}/add_to_favorites`, data)
+      .then(response => response.json())
+      .then(park => dispatch({
+        type: 'ADD_TO_FAVORITES',
+        payload: park
+      }))
+  }
 }
