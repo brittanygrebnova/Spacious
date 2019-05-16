@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import Home from './containers/Home'
+import AllParksContainer from './containers/AllParksContainer'
+import FavoritesContainer from './containers/FavoritesContainer'
 import ParkDetail from './components/ParkDetail'
-import AllParks from './containers/AllParks';
+import AllParks from './components/AllParks';
 import StateDropdown from './components/StateDropdown'
 import createHistory from 'history/createBrowserHistory';
 import Navbar from './components/Navbar'
@@ -21,8 +23,8 @@ const App = () => {
                 <Navbar />
               </Route>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/all" component={AllParks}/>
-              <Route exact path="/favorites" component={FavoriteParks}/>
+              <Route exact path="/all" component={AllParksContainer}/>
+              <Route exact path="/favorites" component={FavoritesContainer}/>
             </React.Fragment>
           </BrowserRouter>
         </div>

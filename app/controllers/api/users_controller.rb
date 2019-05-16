@@ -30,6 +30,7 @@ class Api::UsersController < ApplicationController
 
 
   def remove_from_favorites
+    current_user = User.find(params[:id])
     park = Park.find(params[:id])
     current_user.favorites.delete(park)
     render json: current_user.favorites

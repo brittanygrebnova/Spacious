@@ -3,7 +3,6 @@ import '../Login.css';
 import { fetchUsers, setUser } from '../actions/UserActions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import StateDropdown from '../components/StateDropdown'
 
 class Login extends Component {
 
@@ -38,12 +37,7 @@ class Login extends Component {
         const username = this.props.currentUser[0].firstname
         return (
           <div>
-            <div>
-              <h3>Hey, {username}! Choose A State</h3>
-            </div>
-            <div>
-              <StateDropdown/>
-            </div>
+            <h4>Hey, {username}! Choose A State</h4>
           </div>
         )
       }

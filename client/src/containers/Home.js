@@ -1,26 +1,29 @@
 import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import { selectPark } from '../actions/ParkActions'
-import '../App.css'
-import { bindActionCreators } from 'redux'
 import Login from '../components/Login'
 import HomeHeader from '../components/HomeHeader'
+import StateDropdown from '../components/StateDropdown'
+import { selectPark } from '../actions/ParkActions'
+import {connect} from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-class Home extends Component {
+const Home = () => {
 
-  render() {
     return (
       <div>
         <div>
           <HomeHeader/>
         </div>
-        <div>
-          <Login/>
+        <div className="ui two column grid">
+          <div className="column">
+            <Login/>
+          </div>
+          <div className="column">
+            <StateDropdown/>
+          </div>
         </div>
       </div>
-
     )
-  }
+
 }
 
 export default Home

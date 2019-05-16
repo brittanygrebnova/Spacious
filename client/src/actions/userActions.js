@@ -54,3 +54,23 @@ export const addParkToUserFavorites = (selectedPark, user) => {
       }))
   }
 }
+
+export const removeParkFromUserFavorites = (selectedPark, user) => {
+  let id = user[0].id
+  let data = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ park: selectedPark })
+  }
+
+  return dispatch => {
+    fetch (`/api/users/${id}/remove_from_favorites`, data)
+      .then(response => response.json())
+      .then(park => dispatch({
+        type: 'REMOVE_FROM_FAVORITES',
+        payload: park
+      }))
+  }
+}

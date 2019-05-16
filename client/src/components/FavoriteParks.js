@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import ParkDetail from '../components/ParkDetail'
 import FavoritesHeader from '../components/FavoritesHeader'
+import NoDataHeader from '../components/NoDataHeader'
+import { removeParkFromUserFavorites } from '../actions/UserActions'
+import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
 
 class FavoriteParks extends Component {
@@ -14,7 +17,7 @@ class FavoriteParks extends Component {
             <div><FavoritesHeader/></div>
             <div className="ui cards">
               {this.props.currentUser[0].favorites.map((park, index) =>
-                  <div className="card">
+                  <div className="card" key={park.parkCode}>
                     <div className="content">
                       <div className="header">{park.name}</div>
                       <div className="description">
@@ -30,9 +33,9 @@ class FavoriteParks extends Component {
                         <strong>Weather: </strong>{park.weatherInfo}
                       </div>
                     </div>
-                    <div className="ui bottom attached button">
+                    <div className="ui bottom attached button" onClick={() => this.props.removeParkFromUserFavorites(park, this.props.currentUser)}>
                       <i className="add icon"></i>
-                      Add A Review
+                      Remove From Favorites
                     </div>
                   </div>
                 )}
@@ -40,10 +43,10 @@ class FavoriteParks extends Component {
             </div>
           )
         }
-      else {
-        return null
-      }
+    else {
+      return <div><NoDataHeader /></div>
     }
+  }
 }
 
 const mapStateToProps = (state) => {
@@ -52,4 +55,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(FavoriteParks)
+const mapDispatchToProps = (dispatch) => bindActionCreators({
+  removeParkFromUserFavorites
+}, dispatch)
+
+export default connect(mapStateToProps, mapDispatchToProps)(FavoriteParks)
