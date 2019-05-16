@@ -3,6 +3,7 @@ import '../Login.css';
 import { fetchUsers, setUser } from '../actions/UserActions'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
+import StateDropdown from '../components/StateDropdown'
 
 class Login extends Component {
 
@@ -31,11 +32,31 @@ class Login extends Component {
       )
     })
 
+    const sayHiToCurrentUser = () => {
+      console.log(this.props.currentUser)
+      if (this.props.currentUser) {
+        const username = this.props.currentUser[0].firstname
+        return (
+          <div>
+            <div>
+              <h3>Hey, {username}! Choose A State</h3>
+            </div>
+            <div>
+              <StateDropdown/>
+            </div>
+          </div>
+        )
+      }
+    }
+
     return (
-      <select className="ui search dropdown" onChange={(e) => this.handleChange(e)}>
-        <option value="">Find Your Name</option>
-        {mapUsersForDropdown}
-      </select>
+      <div>
+        <select className="ui search dropdown" onChange={(e) => this.handleChange(e)}>
+          <option value="">Find Your Name</option>
+          {mapUsersForDropdown}
+        </select><br/>
+        <div>{sayHiToCurrentUser()}</div>
+      </div>
     )
   }
 }

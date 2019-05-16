@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Login from './components/Login'
+import Home from './containers/Home'
 import ParkDetail from './components/ParkDetail'
 import AllParks from './containers/AllParks';
 import StateDropdown from './components/StateDropdown'
@@ -10,9 +10,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 const history = createHistory();
 
-class App extends Component {
-
-  render() {
+const App = () => {
 
     return(
       <div>
@@ -22,23 +20,15 @@ class App extends Component {
               <Route>
                 <Navbar />
               </Route>
-              <Route exact path="/" component={Login}/>
+              <Route exact path="/" component={Home}/>
               <Route exact path="/all" component={AllParks}/>
               <Route exact path="/favorites" component={FavoriteParks}/>
             </React.Fragment>
           </BrowserRouter>
         </div>
-        <div>
-          <div>
-            <h1 className="header">Spacious</h1>
-            <h2 className="header">Discover America's National Parks</h2>
-          </div>
-            <div className="ui grid">
-            </div>
-          </div>
-        </div>
+      </div>
     )
-  }
+
 }
 
 
