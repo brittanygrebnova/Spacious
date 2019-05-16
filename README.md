@@ -5,7 +5,8 @@ Do you know how beautiful America is? In case you don't, the Spacious App will p
 # Installation
 
 <pre>
-  <code>git clone https://github.com/brittanygrebnova/Spacious.git
+  <code>
+    git clone https://github.com/brittanygrebnova/Spacious.git
     cd Spacious
     npm install
     npm start
