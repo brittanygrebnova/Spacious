@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { selectPark } from '../actions/ParkActions'
+import { selectPark } from '../actions/parkActions'
 import FavoritesHeader from '../components/FavoritesHeader'
 import FavoriteParks from '../components/FavoriteParks'
 import { bindActionCreators } from 'redux'

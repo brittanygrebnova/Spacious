@@ -68,9 +68,9 @@ export const removeParkFromUserFavorites = (selectedPark, user) => {
   return dispatch => {
     fetch (`/api/users/${id}/remove_from_favorites`, data)
       .then(response => response.json())
-      .then(park => dispatch({
+      .then(parks => dispatch({
         type: 'REMOVE_FROM_FAVORITES',
-        payload: park
-      }))
+        payload: parks
+      }, () => console.log(parks)))
   }
 }

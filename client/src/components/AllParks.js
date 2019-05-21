@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { selectPark } from '../actions/ParkActions'
+import { selectPark } from '../actions/parkActions'
 import '../App.css'
 import NoDataHeader from '../components/NoDataHeader'
 import { bindActionCreators } from 'redux'

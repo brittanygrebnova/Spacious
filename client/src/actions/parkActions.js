@@ -14,7 +14,7 @@ export const fetchParks = (selectedStateCode) => {
   }
 }
 
-export const selectState = state => {
+export const selectState = (state) => {
   return dispatch => {
     dispatch({
       type: 'STATE_SELECTED',
@@ -23,7 +23,7 @@ export const selectState = state => {
   }
 }
 
-export const selectPark = park => {
+export const selectPark = (park) => {
   return dispatch => {
     dispatch({
       type: 'PARK_SELECTED',

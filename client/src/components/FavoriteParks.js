@@ -10,13 +10,14 @@ class FavoriteParks extends Component {
 
   render() {
 
-    console.log(this.props.currentUser)
+
       if (this.props.currentUser) {
+        console.log('in favorite parks currentUser.favorites is', this.props.currentUserFavorites)
         return (
           <div>
             <div><FavoritesHeader/></div>
             <div className="ui cards">
-              {this.props.currentUser[0].favorites.map((park, index) =>
+              {this.props.currentUserFavorites.map((park, index) =>
                   <div className="card" key={park.parkCode}>
                     <div className="content">
                       <div className="header">{park.name}</div>
@@ -51,7 +52,8 @@ class FavoriteParks extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.user.currentUser
+    currentUser: state.user.currentUser,
+    currentUserFavorites: state.user.currentUserFavorites
   }
 }
 

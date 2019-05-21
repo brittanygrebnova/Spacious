@@ -2,10 +2,13 @@ import React from 'react';
 
 const HomeHeader = () => {
   return(
-    <h1 class="ui center aligned icon header">
-      <i class="expand icon"></i>
-      SPACIOUS
-    </h1>
+    <div>
+      <h1 class="ui center aligned icon header">
+        <i class="binoculars icon"></i>
+        SPACIOUS
+      </h1>
+      <span>Discover America's National Parks</span>
+    </div>
   )
 }
 

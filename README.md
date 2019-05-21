@@ -9,7 +9,7 @@ Use the following terminal commands to get up and running!
 <pre>
   <code>
     git clone https://github.com/brittanygrebnova/Spacious.git
-    cd Spacious
+    cd Spacious/src
     npm install
     bundle install
     rake db:migrate

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
-import { selectState, fetchParks } from '../actions/ParkActions'
+import { selectState, fetchParks } from '../actions/parkActions'
 
 class StateDropdown extends Component {
 
@@ -15,7 +15,9 @@ class StateDropdown extends Component {
     this.props.fetchParks(event.target.value)
   }
 
+
   render() {
+
     return (
       <select className="ui search dropdown" onChange={(e) => this.handleChange(e)}>
         <option value="">Choose A State</option>
