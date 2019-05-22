@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ParkDetail from '../components/ParkDetail'
 import FavoritesHeader from '../components/FavoritesHeader'
 import NoDataHeader from '../components/NoDataHeader'
+import LikeButton from '../components/LikeButton'
 import { removeParkFromUserFavorites } from '../actions/UserActions'
 import { bindActionCreators } from 'redux'
 import {connect} from 'react-redux'
@@ -10,14 +11,13 @@ class FavoriteParks extends Component {
 
   render() {
 
-
       if (this.props.currentUser) {
-        console.log('in favorite parks currentUser.favorites is', this.props.currentUserFavorites)
+        console.log('in favorite parks currentUser.favorites is', this.props.currentUser.favorites)
         return (
           <div>
             <div><FavoritesHeader/></div>
             <div className="ui cards">
-              {this.props.currentUserFavorites.map((park, index) =>
+              {this.props.currentUser.favorites.map((park, index) =>
                   <div className="card" key={park.parkCode}>
                     <div className="content">
                       <div className="header">{park.name}</div>
@@ -33,6 +33,7 @@ class FavoriteParks extends Component {
                       <div className="description">
                         <strong>Weather: </strong>{park.weatherInfo}
                       </div>
+                      <LikeButton />
                     </div>
                     <div className="ui bottom attached button" onClick={() => this.props.removeParkFromUserFavorites(park, this.props.currentUser)}>
                       <i className="add icon"></i>
@@ -53,7 +54,6 @@ class FavoriteParks extends Component {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.user.currentUser,
-    currentUserFavorites: state.user.currentUserFavorites
   }
 }
 

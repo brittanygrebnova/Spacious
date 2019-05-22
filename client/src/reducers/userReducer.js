@@ -1,8 +1,7 @@
 const initialState = {
   loading: false,
   allUsers: [],
-  currentUser: null,
-  currentUserFavorites: []
+  currentUser: null
 }
 
 export default function userReducer(state = initialState, action) {
@@ -14,11 +13,11 @@ export default function userReducer(state = initialState, action) {
     case 'RETRIEVING_SELECTED_USER':
       return { ...state, loading: true }
     case 'SET_USER':
-      return { ...state, currentUser: state.allUsers.filter(user => user.id === action.payload.id) }
+      return { ...state, currentUser: state.allUsers.find(user => user.id === action.payload.id) }
     case 'ADD_TO_FAVORITES':
-      return { ...state, currentUserFavorites: [...state.currentUserFavorites, action.payload] }
+      return { ...state, currentUser: {...state.currentUser, favorites: action.payload }}
     case 'REMOVE_FROM_FAVORITES':
-      return { ...state, currentUserFavorites: [...state.currentUserFavorites, action.payload] }
+      return { ...state, currentUser: {...state.currentUser, favorites: action.payload }}
     default: return state
   }
 }

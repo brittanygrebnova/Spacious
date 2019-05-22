@@ -36,7 +36,7 @@ export const setUser = id => {
 }
 
 export const addParkToUserFavorites = (selectedPark, user) => {
-  let id = user[0].id
+  let id = user.id
   let data = {
     method: 'POST',
     headers: {
@@ -48,15 +48,15 @@ export const addParkToUserFavorites = (selectedPark, user) => {
   return dispatch => {
     fetch (`/api/users/${id}/add_to_favorites`, data)
       .then(response => response.json())
-      .then(park => dispatch({
+      .then(parks => dispatch({
         type: 'ADD_TO_FAVORITES',
-        payload: park
+        payload: parks
       }))
   }
 }
 
 export const removeParkFromUserFavorites = (selectedPark, user) => {
-  let id = user[0].id
+  let id = user.id
   let data = {
     method: 'POST',
     headers: {

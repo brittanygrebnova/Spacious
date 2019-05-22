@@ -22,10 +22,8 @@ class Api::UsersController < ApplicationController
   def add_to_favorites
     current_user = User.find(params[:id])
     park = Park.find_or_create_by(park_params)
-    if !current_user.favorites.include?(park)
-      current_user.favorites << park
-      render json: current_user.favorites
-    end
+    current_user.favorites << park unless current_user.favorites.include?(park)
+    render json: current_user.favorites.uniq
   end
 
 

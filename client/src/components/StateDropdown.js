@@ -5,10 +5,6 @@ import { selectState, fetchParks } from '../actions/parkActions'
 
 class StateDropdown extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   handleChange(event) {
     console.log(event.target.value)
     this.props.selectState(event.target.value)

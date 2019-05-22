@@ -5,10 +5,6 @@ import { addParkToUserFavorites } from '../actions/UserActions'
 
 class ParkDetail extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
 
     const renderParkDetail = () => {

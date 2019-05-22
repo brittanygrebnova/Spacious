@@ -6,10 +6,6 @@ import { bindActionCreators } from 'redux'
 
 class Login extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   componentDidMount() {
     this.props.fetchUsers()
   }
@@ -34,7 +30,7 @@ class Login extends Component {
     const sayHiToCurrentUser = () => {
       console.log(this.props.currentUser)
       if (this.props.currentUser) {
-        const username = this.props.currentUser[0].firstname
+        const username = this.props.currentUser.firstname
         return (
           <div class="ui blue message">
             <div class="header">
