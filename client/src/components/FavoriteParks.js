@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ParkDetail from '../components/ParkDetail'
 import FavoritesHeader from '../components/FavoritesHeader'
 import NoDataHeader from '../components/NoDataHeader'
 import LikeButton from '../components/LikeButton'
@@ -18,20 +17,17 @@ class FavoriteParks extends Component {
             <div><FavoritesHeader/></div>
             <div className="ui cards">
               {this.props.currentUser.favorites.map((park, index) =>
-                  <div className="card" key={park.parkCode}>
+                  <div className="card" key={index}>
                     <div className="content">
                       <div className="header">{park.name}</div>
-                      <div className="description">
-                        <strong>Description: </strong>{park.description}
-                      </div>
                       <div className="description">
                         <strong>States: </strong>{park.states}
                       </div>
                       <div className="description">
-                        <strong>Directions: </strong><a href={park.directionsUrl} target="_blank">{park.directionsUrl}</a>
+                        <strong>Description: </strong>{park.description}
                       </div>
                       <div className="description">
-                        <strong>Weather: </strong>{park.weatherInfo}
+                        <strong>Web: </strong><a>{park.url}</a>
                       </div>
                       <LikeButton />
                     </div>

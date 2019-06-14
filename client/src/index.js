@@ -7,9 +7,6 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from './reducers';
-import Navbar from './components/Navbar'
-import FavoriteParks from './components/FavoriteParks'
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -1,13 +1,13 @@
+import '../App.css'
 import React from 'react';
 
 const HomeHeader = () => {
   return(
-    <div>
-      <h1 class="ui center aligned icon header">
-        <i class="binoculars icon"></i>
-        SPACIOUS
-      </h1>
-      <span>Discover America's National Parks</span>
+    <div className="ui grid">
+      <div className="sixteen wide column">
+        <h1>Spacious</h1>
+        <h4>Discover America's National Parks</h4>
+      </div>
     </div>
   )
 }

@@ -32,11 +32,11 @@ class Login extends Component {
       if (this.props.currentUser) {
         const username = this.props.currentUser.firstname
         return (
-          <div class="ui blue message">
-            <div class="header">
+          <div className="ui blue message">
+            <div className="header">
               Welcome back, {username}!
             </div>
-            <p>You can navigate to Park Search to find new parks or go to Favorites to see your list of saved parks</p>
+            <p>You can navigate to All Parks to find new parks or go to Favorites to see your list of saved parks</p>
           </div>
         )
       }

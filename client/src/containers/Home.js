@@ -1,9 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Login from '../components/Login'
 import HomeHeader from '../components/HomeHeader'
-import { selectPark } from '../actions/parkActions'
-import {connect} from 'react-redux'
-import { bindActionCreators } from 'redux'
 
 const Home = () => {
 
@@ -12,7 +9,7 @@ const Home = () => {
         <div>
           <HomeHeader/>
         </div>
-        <div class="ui section divider"></div>
+        <div className="ui section divider"></div>
         <div className="column">
           <Login/>
         </div>

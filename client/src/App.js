@@ -1,16 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Home from './containers/Home'
 import AllParksContainer from './containers/AllParksContainer'
 import FavoritesContainer from './containers/FavoritesContainer'
-import ParkDetail from './components/ParkDetail'
-import AllParks from './components/AllParks';
-import StateDropdown from './components/StateDropdown'
-import createHistory from 'history/createBrowserHistory';
 import Navbar from './components/Navbar'
-import FavoriteParks from './components/FavoriteParks'
 import { BrowserRouter, Route } from 'react-router-dom';
-
-const history = createHistory();
 
 const App = () => {
 

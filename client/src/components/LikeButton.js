@@ -7,7 +7,7 @@ class LikeButton extends Component {
   }
 
   handleClick = () => {
-    this.setState((prevState, {count}) => ({
+    this.setState((prevState) => ({
       count: prevState.count + 1
     }))
   }

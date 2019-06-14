@@ -1,10 +1,7 @@
-import React, { Component } from 'react'
-import { selectPark } from '../actions/parkActions'
+import React from 'react'
 import ParkDetail from '../components/ParkDetail'
 import AllParks from '../components/AllParks';
 import StateDropdown from '../components/StateDropdown'
-import { bindActionCreators } from 'redux'
-import {connect} from 'react-redux'
 
 const ParksContainer = () => {
 

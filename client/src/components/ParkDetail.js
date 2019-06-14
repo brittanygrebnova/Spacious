@@ -8,28 +8,32 @@ class ParkDetail extends Component {
   render() {
 
     const renderParkDetail = () => {
-        if (this.props.selectedPark) {
+
+        if (this.props.selectedPark && this.props.currentUser.favorites) {
+          const checkFavorites = this.props.currentUser.favorites.filter(park => park.name === this.props.selectedPark.name)
+          console.log(checkFavorites)
           return (
-          <div className="ui cards">
-            <div className="card">
-              <div className="content">
-                <div className="header">{this.props.selectedPark.name}</div>
-                <div className="description">
-                  <strong>Description: </strong>{this.props.selectedPark.description}
+            <div className="ui cards">
+              <div className="card">
+                <div className="content">
+                  <div className="header">{this.props.selectedPark.name}</div>
+                  <div className="description">
+                    <strong>Description: </strong>{this.props.selectedPark.description}
+                  </div>
+                  <div className="description">
+                    <strong>States: </strong>{this.props.selectedPark.states}
+                  </div>
+                  <div className="description">
+                    <strong>Directions: </strong><a href={this.props.selectedPark.directionsUrl} target="_blank">{this.props.selectedPark.directionsUrl}</a>
+                  </div>
+                  <div className="description">
+                    <strong>Weather: </strong>{this.props.selectedPark.weatherInfo}
+                  </div>
                 </div>
-                <div className="description">
-                  <strong>States: </strong>{this.props.selectedPark.states}
-                </div>
-                <div className="description">
-                  <strong>Directions: </strong><a href={this.props.selectedPark.directionsUrl} target="_blank">{this.props.selectedPark.directionsUrl}</a>
-                </div>
-                <div className="description">
-                  <strong>Weather: </strong>{this.props.selectedPark.weatherInfo}
-                </div>
-              </div>
-              <div className="ui bottom attached button" onClick={() => this.props.addParkToUserFavorites(this.props.selectedPark, this.props.currentUser)}>
+              <div>{checkFavorites.length > 0 ? <div className="ui bottom attached button"><i className="heart icon"></i>One Of Your Favorites</div> : <div className="ui bottom attached button" onClick={() => {
+                console.log('A'); this.props.addParkToUserFavorites(this.props.selectedPark, this.props.currentUser); console.log('B');}}>
                 <i className="add icon"></i>
-                Add To Favorites
+                Add To Favorites</div> }
               </div>
             </div>
           </div>

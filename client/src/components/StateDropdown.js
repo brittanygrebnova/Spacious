@@ -73,11 +73,6 @@ class StateDropdown extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    selectedState: state.parks.selectedState
-  }
-}
 const mapDispatchToProps = (dispatch) => bindActionCreators({
   selectState,
   fetchParks

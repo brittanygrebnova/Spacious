@@ -51,6 +51,7 @@ class Api::UsersController < ApplicationController
       :name,
       :description,
       :url,
+      :states
     )
   end
 

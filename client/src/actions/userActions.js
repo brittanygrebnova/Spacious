@@ -36,6 +36,7 @@ export const setUser = id => {
 }
 
 export const addParkToUserFavorites = (selectedPark, user) => {
+  console.log('C');
   let id = user.id
   let data = {
     method: 'POST',
@@ -48,10 +49,14 @@ export const addParkToUserFavorites = (selectedPark, user) => {
   return dispatch => {
     fetch (`/api/users/${id}/add_to_favorites`, data)
       .then(response => response.json())
-      .then(parks => dispatch({
+      .then(parks => {
+        console.log('D');
+        dispatch({
         type: 'ADD_TO_FAVORITES',
         payload: parks
-      }))
+      });
+      console.log('F')
+    })
   }
 }
 
