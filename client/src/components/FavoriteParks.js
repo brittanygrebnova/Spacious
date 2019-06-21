@@ -15,9 +15,6 @@ class FavoriteParks extends Component {
       );
       return (
         <div>
-          <div>
-            <FavoritesHeader />
-          </div>
           <div className="ui cards">
             {this.props.currentUser.favorites.map((park, index) => (
               <div className="card" key={index}>

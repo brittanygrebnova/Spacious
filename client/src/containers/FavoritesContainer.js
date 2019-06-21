@@ -1,18 +1,19 @@
-import React from 'react'
-import FavoriteParks from '../components/FavoriteParks'
+import React from "react";
+import FavoriteParks from "../components/FavoriteParks";
 
 const FavoritesContainer = () => {
-
-    return (
+  return (
+    <div>
       <div>
-        <div className="ui four column grid">
-          <div>
-            <FavoriteParks />
-          </div>
+        <FavoritesHeader />
+      </div>
+      <div className="ui four column grid">
+        <div>
+          <FavoriteParks />
         </div>
       </div>
-    )
+    </div>
+  );
+};
 
-}
-
-export default FavoritesContainer
+export default FavoritesContainer;
