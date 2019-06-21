@@ -1,5 +1,6 @@
 import React from "react";
 import FavoriteParks from "../components/FavoriteParks";
+import FavoritesHeader from "../components/FavoritesHeader";
 
 const FavoritesContainer = () => {
   return (

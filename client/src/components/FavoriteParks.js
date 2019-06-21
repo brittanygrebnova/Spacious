@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import FavoritesHeader from "../components/FavoritesHeader";
 import NoDataHeader from "../components/NoDataHeader";
 import LikeButton from "../components/LikeButton";
 import { removeParkFromUserFavorites } from "../actions/userActions";
