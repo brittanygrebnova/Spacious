@@ -29,7 +29,7 @@ class FavoriteParks extends Component {
                   </div>
                   <div className="description">
                     <strong>Web: </strong>
-                    <a>{park.url}</a>
+                    <a href={park.url}>{park.url}</a>
                   </div>
                   <LikeButton />
                 </div>

@@ -3,7 +3,7 @@
 }
 
 h1 {
-  font-family: 'Sacramento', cursive;
+  font-family: "Modak", cursive;
   font-size: 60px;
   padding-top: 20px;
   padding-bottom: 0px;
@@ -11,7 +11,7 @@ h1 {
 }
 
 h2.header {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   position: relative;
   padding-bottom: 30px;
   font-weight: 200;
