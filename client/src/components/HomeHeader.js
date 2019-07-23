@@ -1,15 +1,15 @@
-import '../App.css'
-import React from 'react';
+import "../App.css";
+import React from "react";
 
 const HomeHeader = () => {
-  return(
+  return (
     <div className="ui grid">
       <div className="sixteen wide column">
         <h1>Spacious</h1>
-        <h4>Discover America's National Parks</h4>
+        <h2>Discover America's National Parks</h2>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomeHeader
+export default HomeHeader;
