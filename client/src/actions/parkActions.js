@@ -1,5 +1,4 @@
 import fetch from "isomorphic-fetch";
-const keys = require("../config/keys");
 
 export const fetchParks = selectedStateCode => {
   const apiKey = "1TwbjGYfdkH1i5YQynffvD2ZvsEmRNdwcIXmI2h1";
