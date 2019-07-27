@@ -8,6 +8,7 @@ export const fetchParks = selectedStateCode => {
       `https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=${selectedStateCode}&api_key=${apiKey}`
     )
       .then(response => {
+        debugger;
         return response.json();
       })
       .then(parks => {
