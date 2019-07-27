@@ -1,6 +1,7 @@
 import fetch from "isomorphic-fetch";
 
 export const fetchParks = selectedStateCode => {
+  debugger;
   const apiKey = "1TwbjGYfdkH1i5YQynffvD2ZvsEmRNdwcIXmI2h1";
   return dispatch => {
     dispatch({ type: "LOADING_PARKS" });
@@ -8,7 +9,6 @@ export const fetchParks = selectedStateCode => {
       `https://developer.nps.gov/api/v1/parks?parkCode=&stateCode=${selectedStateCode}&api_key=${apiKey}`
     )
       .then(response => {
-        debugger;
         return response.json();
       })
       .then(parks => {
